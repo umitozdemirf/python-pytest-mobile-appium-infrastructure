@@ -30,3 +30,6 @@ class BasePage:
 
     def verify_element(self, locator):
         self.find_element(locator)
+
+    def verify_element_text(self, locator, text):
+        assert self.find_element(locator).text == text, "Message isn't equal!"
