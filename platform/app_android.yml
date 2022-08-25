@@ -1,0 +1,10 @@
+caps:
+  platformName: "Android"
+  automationName: "Appium"
+  deviceName: "device"
+  app: "/Users/umitozdemir/Proj/FireFly/firefly-mobil-aut/app/app-debug.apk"
+  udid: "emulator-5554"
+  fullReset": true
+appium_lib:
+  server_url: "http://localhost:4723/wd/hub"
+

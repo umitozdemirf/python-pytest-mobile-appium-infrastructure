@@ -1,0 +1,32 @@
+import time
+
+from selenium.webdriver.common.keys import Keys
+
+from config.base_config import BaseConfig
+from selenium.webdriver import ActionChains
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+"""This class is the parent of all classes"""
+"""It contains all the generic methods and utilities for all pages"""
+
+
+class BasePage:
+
+    def __init__(self, driver):
+        self.driver = driver
+        self.timeout = BaseConfig.DEFAULT_WAIT
+
+    def find_element(self, locator):
+        return WebDriverWait(self.driver, self.timeout).until(EC.visibility_of_element_located(locator),
+                                                              'ELEMENT IS NOT FOUND OR VISIBLE! => {}'.format(
+                                                                  locator))
+
+    def fill_input(self, locator, value):
+        self.find_element(locator).send_keys(value)
+
+    def click_element(self, locator):
+        self.find_element(locator).click()
+
+    def verify_element(self, locator):
+        self.find_element(locator)
