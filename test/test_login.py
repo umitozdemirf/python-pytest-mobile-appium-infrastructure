@@ -4,6 +4,7 @@ from config.account.account_config import AccountConfig as account
 from resources.validation import Validation as validation
 
 from pages.login.login_page import LoginPage
+from pages.dashboard.dashboard_page import DashboardPage
 
 from utils.data.data_generator import DataGenerator as generator
 
@@ -15,11 +16,12 @@ class TestProducts:
     @pytest.mark.regression
     def test_login_case1(self):
         login_page = LoginPage(self.driver)
+        dashboard_page = DashboardPage(self.driver)
 
         login_page.fill_username(account.USERNAME) \
             .fill_password(account.PASSWORD) \
-            .click_login_button() \
-            .verify_logout_button()
+            .click_login_button()
+        dashboard_page.verify_logout_button()
 
     @pytest.mark.regression
     def test_login_case2(self):

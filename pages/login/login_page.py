@@ -10,8 +10,8 @@ class LoginPage(BasePage):
     USERNAME_INPUT = (MobileBy.ID, 'com.example.myloginapp:id/username')
     PASSWORD_INPUT = (MobileBy.ID, 'com.example.myloginapp:id/password')
     LOGIN_BUTTON = (MobileBy.ID, 'com.example.myloginapp:id/loginbtn')
-    LOGOUT_BUTTON = (MobileBy.ID, 'com.example.myloginapp:id/logout')
     MESSAGE_LABEL = (MobileBy.ID, 'com.example.myloginapp:id/warningMessage')
+    LOGOUT_BUTTON = (MobileBy.ID, 'com.example.myloginapp:id/logout')
 
     def fill_username(self, email):
         self.fill_input(self.USERNAME_INPUT, email)
@@ -23,10 +23,6 @@ class LoginPage(BasePage):
 
     def click_login_button(self):
         self.click_element(self.LOGIN_BUTTON)
-        return self
-
-    def verify_logout_button(self):
-        self.verify_element(self.LOGOUT_BUTTON)
         return self
 
     def verify_error_message(self, message):
